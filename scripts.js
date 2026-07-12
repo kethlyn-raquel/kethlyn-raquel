@@ -1,8 +1,8 @@
 const BUSINESS_CONFIG = {
-  whatsapp: "INSIRA_O_NUMERO_COM_DDI",
-  email: "INSIRA_O_EMAIL",
-  instagram: "INSIRA_O_USUARIO",
-  tiktok: "INSIRA_O_USUARIO",
+  whatsapp: "5555996554308",
+  email: "rafaeldornellesgoncalves@gmail.com",
+  instagram: "rfcheff_",
+  tiktok: "dornellescruel",
 };
 
 document.documentElement.classList.add("js");
