@@ -60,12 +60,12 @@ const products = [
     description: "Identificação bonita e prática para materiais da rotina escolar."
   },
   {
-    name: "Caneca nalizada",
-    price: "R$ 39,90",
-    image: "img/produtos/caneca-nalizada.jpg",
-    category: "personalizados",
-    description: "Também disponível em promoção: duas unidades por R$ 65,00."
-  },
+  name: "Caneca Personalizada",
+  price: "R$ 39,90",
+  image: "img/produtos/caneca-personalizada.jpg",
+  category: "personalizados",
+  description: "Também disponível em promoção: duas unidades por R$ 65,00."
+},
   {
   name: "Quadro de Vidro",
   price: "R$ 25,00",
