@@ -50,7 +50,7 @@ const products = [
     price: "R$ 3,50",
     image: "img/produtos/mini-calendario.jpg",
     category: "papelaria",
-    description: "Uma opção útil e nalizada para brindes, lembranças e divulgação."
+    description: "Uma opção útil e personalizada para brindes, lembranças e divulgação."
   },
   {
     name: "Etiqueta Escolar",
