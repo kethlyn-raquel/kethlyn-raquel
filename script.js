@@ -70,7 +70,8 @@ const products = [
   name: "Quadro de Vidro",
   price: "R$ 25,00",
   image: "img/produtos/quadro-vidro.jpg",
-  category: "personalizados"
+  category: "personalizados",
+  description: ""
 },
   {
     name: "Álbum de Fotos + 18 Fotos",
