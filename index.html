@@ -1,595 +1,179 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ketty Designer | Produtos personalizados!</title>
-    <meta
-      name="description"
-      content="Canecas, camisetas, kits, papelaria, brindes e lembrancinhas personalizados com arte exclusiva para presentes, marcas, eventos e criadores."
-    />
-    <link rel="canonical" href="https://INSIRA_SEU_DOMINIO_AQUI/" />
-    <meta property="og:title" content="Studio Prisma | Produtos personalizados que não parecem genéricos" />
-    <meta
-      property="og:description"
-      content="Produtos personalizados com arte exclusiva, prova digital antes da produção e atendimento sob medida para presentes, empresas e eventos."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="assets/hero-products.jpg" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#151515" />
-    <link rel="icon" href="assets/hero-products.jpg" />
-    <link rel="stylesheet" href="styles.css" />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Store",
-        "name": "Studio Prisma",
-        "url": "https://INSIRA_SEU_DOMINIO_AQUI/",
-        "description": "Loja de produtos personalizados com arte exclusiva para presentes, marcas, eventos e criadores.",
-        "telephone": "INSIRA_O_NUMERO_COM_DDI",
-        "email": "INSIRA_O_EMAIL"
-      }
-    </script>
-  </head>
-  <body>
-    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ketty Designer — Papelaria e Personalizados</title>
+  <meta name="description" content="Papelaria personalizada, brindes e lembranças exclusivas. Peça pelo WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-    <header class="site-header" data-header>
-      <a class="brand" href="#inicio" aria-label="Studio Prisma, início">
-        <span class="brand-mark" aria-hidden="true">SP</span>
-        <span>Studio Prisma</span>
-      </a>
-
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span class="sr-only">Abrir menu</span>
-      </button>
-
-      <nav id="menu-principal" class="main-nav" aria-label="Menu principal">
+  <!-- HEADER -->
+  <header id="header">
+    <div class="container header-inner">
+      <a href="#home" class="logo">Ketty <span>Designer</span></a>
+      <nav id="nav">
+        <a href="#home">Início</a>
         <a href="#produtos">Produtos</a>
-        <a href="#portfolio">Portfólio</a>
-        <a href="#processo">Como funciona</a>
-        <a href="#faq">FAQ</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#depoimentos">Depoimentos</a>
         <a href="#contato">Contato</a>
+        <a href="https://instagram.com/_ketyrf7" target="_blank" rel="noopener" class="ig-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       </nav>
-    </header>
+      <button id="menuToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </header>
 
-    <main id="conteudo">
-      <section id="inicio" class="hero" aria-label="Apresentação da Studio Prisma">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Personalizados com olhar de estúdio criativo</p>
-          <h1>Produtos personalizados que não parecem genéricos</h1>
-          <p>
-            Canecas, camisetas, kits, papelaria e brindes desenvolvidos com arte
-            exclusiva para presentes, marcas e eventos.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" data-whatsapp-intent="hero" href="#contato">Pedir orçamento pelo WhatsApp</a>
-            <a class="button button-ghost" href="#portfolio">Ver trabalhos realizados</a>
-          </div>
-          <ul class="hero-highlights" aria-label="Diferenciais principais">
-            <li>Arte sob medida</li>
-            <li>Prova digital antes da produção</li>
-            <li>Pedidos pessoais, corporativos e para eventos</li>
-          </ul>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="particles" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <span class="badge fade-up">✨ Papelaria & Personalizados</span>
+        <h1 class="fade-up delay-1">Transformamos suas <em>ideias</em> em produtos personalizados</h1>
+        <p class="fade-up delay-2">A Ketty Designer cria papelaria, brindes e lembranças únicas com acabamento profissional e todo carinho nos detalhes.</p>
+        <div class="hero-buttons fade-up delay-3">
+          <a href="https://wa.me/5555999712007?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Peça pelo WhatsApp</a>
+          <a href="#produtos" class="btn btn-outline">Ver Produtos</a>
         </div>
-
-        <figure class="hero-visual reveal">
-          <img
-            src="assets/hero-products.jpg"
-            alt="Produtos personalizáveis em uma mesa criativa, incluindo caneca, camiseta, adesivos, papelaria e embalagens."
-          />
-          <figcaption>Imagem de referência. Substitua por fotos reais da Studio Prisma quando estiverem disponíveis.</figcaption>
-        </figure>
-      </section>
-
-      <section id="beneficios" class="section trust-section">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Por que confiar</p>
-          <h2>Pedido personalizado precisa de cuidado em cada detalhe</h2>
-        </div>
-        <div class="benefit-grid">
-          <article class="benefit-card reveal">
-            <span aria-hidden="true">✦</span>
-            <h3>Arte desenvolvida sob medida</h3>
-            <p>Cada pedido pode ser adaptado ao tema, à marca, à ocasião e ao público.</p>
-          </article>
-          <article class="benefit-card reveal">
-            <span aria-hidden="true">✓</span>
-            <h3>Prova digital antes da produção</h3>
-            <p>A produção só começa depois da aprovação da prova digital.</p>
-          </article>
-          <article class="benefit-card reveal">
-            <span aria-hidden="true">●</span>
-            <h3>Atendimento personalizado</h3>
-            <p>Você envia referências e recebe orientação para transformar a ideia em produto.</p>
-          </article>
-          <article class="benefit-card reveal">
-            <span aria-hidden="true">↔</span>
-            <h3>Pequenas e grandes quantidades</h3>
-            <p>As possibilidades são avaliadas conforme produto, técnica e prazo.</p>
-          </article>
-          <article class="benefit-card reveal">
-            <span aria-hidden="true">□</span>
-            <h3>Embalagem cuidadosa</h3>
-            <p>O acabamento considera apresentação, proteção e experiência de entrega.</p>
-          </article>
-          <article class="benefit-card reveal">
-            <span aria-hidden="true">→</span>
-            <h3>Envio ou retirada a combinar</h3>
-            <p>As condições são confirmadas no orçamento, de acordo com cidade e produto.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="produtos" class="section product-section">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Vitrine</p>
-          <h2>Escolha a linha que combina com o seu pedido</h2>
-          <p>
-            Os valores são pontos de partida. O orçamento final depende de quantidade,
-            acabamento, prazo, arte e forma de entrega.
-          </p>
-        </div>
-
-        <div class="tab-shell reveal" data-tabs>
-          <div class="tab-list" role="tablist" aria-label="Linhas de produto">
-            <button id="tab-presentes" class="tab-button is-active" type="button" role="tab" aria-selected="true" aria-controls="panel-presentes" data-tab="presentes">Presentes</button>
-            <button id="tab-empresas" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-empresas" data-tab="empresas">Empresas</button>
-            <button id="tab-eventos" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-eventos" data-tab="eventos">Eventos</button>
-            <button id="tab-criadores" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-criadores" data-tab="criadores">Criadores</button>
-          </div>
-
-          <div id="panel-presentes" class="tab-panel is-active" role="tabpanel" aria-labelledby="tab-presentes" data-panel="presentes">
-            <article class="product-card">
-              <div class="product-visual visual-mug" aria-label="Espaço visual para foto de canecas personalizadas"></div>
-              <span class="product-chip">Presente afetivo</span>
-              <h3>Canecas personalizadas</h3>
-              <p>Nome, frase, ilustração, data especial ou composição de cores exclusiva.</p>
-              <strong>A partir de R$ 39</strong>
-              <div class="card-actions">
-                <button type="button" class="text-button" data-product-request="Canecas personalizadas">Pedir orçamento</button>
-                <a href="#portfolio">Ver exemplos</a>
-              </div>
-            </article>
-            <article class="product-card">
-              <div class="product-visual visual-box" aria-label="Espaço visual para foto de caixas presenteáveis"></div>
-              <span class="product-chip">Kit completo</span>
-              <h3>Caixas presenteáveis</h3>
-              <p>Embalagem, tag, papelaria e identidade visual combinando.</p>
-              <strong>A partir de R$ 79</strong>
-              <div class="card-actions">
-                <button type="button" class="text-button" data-product-request="Caixas presenteáveis">Pedir orçamento</button>
-                <a href="#portfolio">Ver exemplos</a>
-              </div>
-            </article>
-            <article class="product-card">
-              <div class="product-visual visual-sticker" aria-label="Espaço visual para foto de adesivos e tags"></div>
-              <span class="product-chip">Rápido de adaptar</span>
-              <h3>Adesivos e tags</h3>
-              <p>Pacotes para lembranças, agendas, festas e embalagens artesanais.</p>
-              <strong>A partir de R$ 25</strong>
-              <div class="card-actions">
-                <button type="button" class="text-button" data-product-request="Adesivos e tags">Pedir orçamento</button>
-                <a href="#portfolio">Ver exemplos</a>
-              </div>
-            </article>
-          </div>
-
-          <div id="panel-empresas" class="tab-panel" role="tabpanel" aria-labelledby="tab-empresas" data-panel="empresas">
-            <article class="product-card">
-              <div class="product-visual visual-kit" aria-label="Espaço visual para foto de kits corporativos"></div>
-              <span class="product-chip">Corporativo</span>
-              <h3>Kits corporativos</h3>
-              <p>Brindes para clientes, onboarding de equipe e ações promocionais.</p>
-              <strong>Sob orçamento</strong>
-              <div class="card-actions">
-                <button type="button" class="text-button" data-product-request="Kits corporativos">Pedir orçamento</button>
-                <a href="#portfolio">Ver exemplos</a>
-              </div>
-            </article>
-            <article class="product-card">
-              <div class="product-visual visual-shirt" aria-label="Espaço visual para foto de camisetas personalizadas"></div>
-              <span class="product-chip">Uniforme e marca</span>
-              <h3>Camisetas personalizadas</h3>
-              <p>Aplicação de logo, estampa autoral, nomes e edições limitadas.</p>
-              <strong>A partir de R$ 49</strong>
-              <div class="card-actions">
-                <button type="button" class="text-button" data-product-request="Camisetas personalizadas">Pedir orçamento</button>
-                <a href="#portfolio">Ver exemplos</a>
-              </div>
-            </article>
-            <article class="product-card">
-              <div class="product-visual visual-paper" aria-label="Espaço visual para foto de cartões e embalagens"></div>
-              <span class="product-chip">Papelaria</span>
-              <h3>Cartões e embalagens</h3>
-              <p>Materiais impressos com padrão visual para uma entrega profissional.</p>
-              <strong>Sob orçamento</strong>
-              <div class="card-actions">
-                <button type="button" class="text-button" data-product-request="Cartões e embalagens">Pedir orçamento</button>
-                <a href="#portfolio">Ver exemplos</a>
-              </div>
-            </article>
-          </div>
-
-          <div id="panel-eventos" class="tab-panel" role="tabpanel" aria-labelledby="tab-eventos" data-panel="eventos">
-            <article class="product-card">
-              <div class="product-visual visual-party" aria-label="Espaço visual para foto de lembrancinhas"></div>
-              <span class="product-chip">Festas</span>
-              <h3>Lembrancinhas</h3>
-              <p>Tags, rótulos, caixinhas, copos e itens temáticos para convidados.</p>
-              <strong>A partir de R$ 3/un.</strong>
-              <div class="card-actions">
-                <button type="button" class="text-button" data-product-request="Lembrancinhas">Pedir orçamento</button>
-                <a href="#portfolio">Ver exemplos</a>
-              </div>
-            </article>
-            <article class="product-card">
-              <div class="product-visual visual-sign" aria-label="Espaço visual para foto de painéis e sinalização"></div>
-              <span class="product-chip">Ambiente</span>
-              <h3>Painel e sinalização</h3>
-              <p>Peças de apoio para mesa, parede, entrada e fotos do evento.</p>
-              <strong>Sob orçamento</strong>
-              <div class="card-actions">
-                <button type="button" class="text-button" data-product-request="Painel e sinalização">Pedir orçamento</button>
-                <a href="#portfolio">Ver exemplos</a>
-              </div>
-            </article>
-            <article class="product-card">
-              <div class="product-visual visual-event" aria-label="Espaço visual para foto de identidade visual de evento"></div>
-              <span class="product-chip">Completo</span>
-              <h3>Identidade do evento</h3>
-              <p>Paleta, tipografia e pacote gráfico para deixar tudo combinado.</p>
-              <strong>Sob orçamento</strong>
-              <div class="card-actions">
-                <button type="button" class="text-button" data-product-request="Identidade do evento">Pedir orçamento</button>
-                <a href="#portfolio">Ver exemplos</a>
-              </div>
-            </article>
-          </div>
-
-          <div id="panel-criadores" class="tab-panel" role="tabpanel" aria-labelledby="tab-criadores" data-panel="criadores">
-            <article class="product-card">
-              <div class="product-visual visual-merch" aria-label="Espaço visual para foto de produtos autorais"></div>
-              <span class="product-chip">Loja criativa</span>
-              <h3>Merch autoral</h3>
-              <p>Produtos para artistas, ilustradores, streamers e pequenos negócios.</p>
-              <strong>Sob orçamento</strong>
-              <div class="card-actions">
-                <button type="button" class="text-button" data-product-request="Merch autoral">Pedir orçamento</button>
-                <a href="#portfolio">Ver exemplos</a>
-              </div>
-            </article>
-            <article class="product-card">
-              <div class="product-visual visual-print" aria-label="Espaço visual para foto de stickers e prints"></div>
-              <span class="product-chip">Coleção</span>
-              <h3>Stickers e prints</h3>
-              <p>Linhas visuais para venda online, feiras criativas e lançamentos.</p>
-              <strong>A partir de R$ 35</strong>
-              <div class="card-actions">
-                <button type="button" class="text-button" data-product-request="Stickers e prints">Pedir orçamento</button>
-                <a href="#portfolio">Ver exemplos</a>
-              </div>
-            </article>
-            <article class="product-card">
-              <div class="product-visual visual-package" aria-label="Espaço visual para foto de embalagem de marca"></div>
-              <span class="product-chip">Entrega com marca</span>
-              <h3>Embalagem de marca</h3>
-              <p>Etiquetas, cartões de agradecimento, envelopes e papel seda.</p>
-              <strong>Sob orçamento</strong>
-              <div class="card-actions">
-                <button type="button" class="text-button" data-product-request="Embalagem de marca">Pedir orçamento</button>
-                <a href="#portfolio">Ver exemplos</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="portfolio" class="section portfolio-section">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Portfólio</p>
-          <h2>Exemplos preparados para substituir por projetos reais</h2>
-          <p>
-            Estes cards são modelos de apresentação. Eles não representam clientes
-            verificados até que fotos e dados reais sejam adicionados.
-          </p>
-        </div>
-        <div class="portfolio-grid">
-          <article class="portfolio-card reveal">
-            <div class="portfolio-visual visual-kit" aria-label="Placeholder para kit corporativo de boas-vindas"></div>
-            <span>Exemplo demonstrativo</span>
-            <h3>Kit corporativo de boas-vindas</h3>
-            <p>Caneca, camiseta, card de boas-vindas e embalagem.</p>
-            <dl>
-              <div><dt>Acabamento</dt><dd>Impressão personalizada e montagem do kit</dd></div>
-              <div><dt>Pedido</dt><dd>Quantidade definida no orçamento</dd></div>
-            </dl>
-            <button type="button" class="text-button" data-project-request="Kit corporativo de boas-vindas">Quero algo parecido</button>
-          </article>
-          <article class="portfolio-card reveal">
-            <div class="portfolio-visual visual-party" aria-label="Placeholder para festa personalizada"></div>
-            <span>Exemplo demonstrativo</span>
-            <h3>Festa personalizada</h3>
-            <p>Tags, adesivos, rótulos, toppers e caixinhas no mesmo tema.</p>
-            <dl>
-              <div><dt>Acabamento</dt><dd>Recorte, impressão e papelaria coordenada</dd></div>
-              <div><dt>Pedido</dt><dd>Itens por convidado ou por kit</dd></div>
-            </dl>
-            <button type="button" class="text-button" data-project-request="Festa personalizada">Quero algo parecido</button>
-          </article>
-          <article class="portfolio-card reveal">
-            <div class="portfolio-visual visual-print" aria-label="Placeholder para coleção autoral"></div>
-            <span>Exemplo demonstrativo</span>
-            <h3>Coleção autoral</h3>
-            <p>Stickers, prints, cartões e embalagem para criadores.</p>
-            <dl>
-              <div><dt>Acabamento</dt><dd>Papelaria de marca e peças colecionáveis</dd></div>
-              <div><dt>Pedido</dt><dd>Lotes pequenos ou lançamento especial</dd></div>
-            </dl>
-            <button type="button" class="text-button" data-project-request="Coleção autoral">Quero algo parecido</button>
-          </article>
-          <article class="portfolio-card reveal">
-            <div class="portfolio-visual visual-mug" aria-label="Placeholder para canecas personalizadas"></div>
-            <span>Exemplo demonstrativo</span>
-            <h3>Canecas personalizadas</h3>
-            <p>Peças com nome, frase, ilustração, data ou tema visual.</p>
-            <dl>
-              <div><dt>Acabamento</dt><dd>Arte exclusiva aplicada em caneca</dd></div>
-              <div><dt>Pedido</dt><dd>Presente individual ou lote</dd></div>
-            </dl>
-            <button type="button" class="text-button" data-project-request="Canecas personalizadas">Quero algo parecido</button>
-          </article>
-          <article class="portfolio-card reveal">
-            <div class="portfolio-visual visual-shirt" aria-label="Placeholder para camisetas de eventos"></div>
-            <span>Exemplo demonstrativo</span>
-            <h3>Camisetas para eventos</h3>
-            <p>Camisetas com identidade visual, nomes, cargos ou edição temática.</p>
-            <dl>
-              <div><dt>Acabamento</dt><dd>Estampa personalizada conforme necessidade</dd></div>
-              <div><dt>Pedido</dt><dd>Equipe, evento, campanha ou grupo</dd></div>
-            </dl>
-            <button type="button" class="text-button" data-project-request="Camisetas para eventos">Quero algo parecido</button>
-          </article>
-          <article class="portfolio-card reveal">
-            <div class="portfolio-visual visual-package" aria-label="Placeholder para papelaria e embalagens"></div>
-            <span>Exemplo demonstrativo</span>
-            <h3>Papelaria e embalagens</h3>
-            <p>Cartões, etiquetas, envelopes, tags e papel seda para marcas.</p>
-            <dl>
-              <div><dt>Acabamento</dt><dd>Impressão e composição visual de entrega</dd></div>
-              <div><dt>Pedido</dt><dd>Reposição, lançamento ou kit de marca</dd></div>
-            </dl>
-            <button type="button" class="text-button" data-project-request="Papelaria e embalagens">Quero algo parecido</button>
-          </article>
-        </div>
-      </section>
-
-      <section id="processo" class="section process-section">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Como funciona</p>
-          <h2>Do primeiro contato ao produto pronto</h2>
-        </div>
-        <div class="timeline">
-          <article class="timeline-item reveal">
-            <span>01</span>
-            <h3>Briefing</h3>
-            <p>Você conta produto, quantidade, prazo, cidade, referências e objetivo do pedido.</p>
-          </article>
-          <article class="timeline-item reveal">
-            <span>02</span>
-            <h3>Arte digital</h3>
-            <p>A proposta visual é preparada e enviada como prova digital para conferência.</p>
-          </article>
-          <article class="timeline-item reveal">
-            <span>03</span>
-            <h3>Produção</h3>
-            <p>A produção só começa depois da aprovação da prova digital e da confirmação do orçamento.</p>
-          </article>
-          <article class="timeline-item reveal">
-            <span>04</span>
-            <h3>Entrega</h3>
-            <p>O pedido é finalizado, embalado e segue por envio ou retirada a combinar.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="depoimentos" class="section testimonials-section">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Depoimentos</p>
-          <h2>Espaço preparado para avaliações reais</h2>
-          <p>Os textos abaixo são exemplos demonstrativos e devem ser trocados por depoimentos reais quando existirem.</p>
-        </div>
-        <div class="testimonial-grid">
-          <figure class="testimonial-card reveal">
-            <blockquote>“Gostei de aprovar a arte antes da produção. Ficou mais fácil imaginar o resultado final.”</blockquote>
-            <figcaption>Cliente exemplo · Canecas personalizadas</figcaption>
-          </figure>
-          <figure class="testimonial-card reveal">
-            <blockquote>“O kit ficou organizado e com identidade visual consistente para a entrega da equipe.”</blockquote>
-            <figcaption>Empresa exemplo · Kit corporativo</figcaption>
-          </figure>
-          <figure class="testimonial-card reveal">
-            <blockquote>“As lembrancinhas seguiram o mesmo tema da festa e deixaram a mesa mais bonita.”</blockquote>
-            <figcaption>Cliente exemplo · Papelaria para evento</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section id="faq" class="section faq-section">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Perguntas frequentes</p>
-          <h2>Dúvidas comuns antes de pedir orçamento</h2>
-        </div>
-        <div class="faq-list reveal" data-faq-list>
-          <details>
-            <summary>Vocês fazem poucas unidades?</summary>
-            <p>Alguns produtos permitem pequenas quantidades. As condições são confirmadas no orçamento.</p>
-          </details>
-          <details>
-            <summary>A arte está incluída?</summary>
-            <p>Depende do tipo de arte e do nível de criação necessário. Essa informação é confirmada após a análise do pedido.</p>
-          </details>
-          <details>
-            <summary>Posso enviar minha própria arte?</summary>
-            <p>Sim. A arte enviada é analisada para verificar se está adequada ao produto e à técnica escolhida.</p>
-          </details>
-          <details>
-            <summary>Qual é o prazo de produção?</summary>
-            <p>O prazo é informado após a análise do pedido, considerando produto, quantidade, aprovação da arte e entrega.</p>
-          </details>
-          <details>
-            <summary>Vocês enviam para outras cidades?</summary>
-            <p>O envio depende da cidade e do tipo de produto. As opções são combinadas no orçamento.</p>
-          </details>
-          <details>
-            <summary>Quando a produção começa?</summary>
-            <p>A produção começa somente depois da aprovação da prova digital e da confirmação das condições do pedido.</p>
-          </details>
-          <details>
-            <summary>Quais formas de pagamento são aceitas?</summary>
-            <p>As condições são confirmadas no orçamento, conforme produto, prazo e forma de entrega.</p>
-          </details>
-          <details>
-            <summary>É possível fazer um pedido urgente?</summary>
-            <p>Pedidos urgentes são avaliados caso a caso. Informe a data necessária para verificar a possibilidade.</p>
-          </details>
-        </div>
-      </section>
-
-      <section id="contato" class="section contact-section">
-        <div class="contact-copy reveal">
-          <p class="eyebrow">Orçamento</p>
-          <h2>Envie as informações e receba uma resposta mais precisa</h2>
-          <p>
-            O formulário organiza sua mensagem para o WhatsApp ou e-mail, sem
-            servidor e sem banco de dados.
-          </p>
-          <div class="config-warning" data-config-warning>
-            Contatos pendentes: substitua os placeholders em <strong>BUSINESS_CONFIG</strong> no arquivo <strong>scripts.js</strong>.
-          </div>
-          <div class="social-links" aria-label="Redes sociais e contato">
-            <a href="#contato" data-social-link="whatsapp" aria-disabled="true">WhatsApp pendente</a>
-            <a href="#contato" data-social-link="instagram" aria-disabled="true">Instagram pendente</a>
-            <a href="#contato" data-social-link="tiktok" aria-disabled="true">TikTok pendente</a>
-            <a href="#contato" data-social-link="email" aria-disabled="true">E-mail pendente</a>
-          </div>
-        </div>
-
-        <form class="contact-form reveal" data-contact-form>
-          <div class="form-row">
-            <label for="nome">Nome *</label>
-            <input id="nome" name="name" type="text" autocomplete="name" placeholder="Seu nome" required />
-          </div>
-          <div class="form-row">
-            <label for="telefone">WhatsApp ou telefone *</label>
-            <input id="telefone" name="phone" type="tel" autocomplete="tel" placeholder="(00) 00000-0000" required />
-          </div>
-          <div class="form-row">
-            <label for="email">E-mail opcional</label>
-            <input id="email" name="email" type="email" autocomplete="email" placeholder="seuemail@exemplo.com" />
-          </div>
-          <div class="form-row">
-            <label for="produto">Produto desejado *</label>
-            <select id="produto" name="product" required>
-              <option value="">Escolha uma opção</option>
-              <option>Canecas personalizadas</option>
-              <option>Camisetas personalizadas</option>
-              <option>Kits e brindes</option>
-              <option>Adesivos e papelaria</option>
-              <option>Lembrancinhas</option>
-              <option>Embalagens personalizadas</option>
-              <option>Outro produto</option>
-            </select>
-          </div>
-          <div class="form-row form-row-small">
-            <label for="quantidade">Quantidade *</label>
-            <input id="quantidade" name="quantity" type="number" min="1" step="1" placeholder="Ex.: 30" required />
-          </div>
-          <div class="form-row form-row-small">
-            <label for="data">Data em que precisa do pedido *</label>
-            <input id="data" name="date" type="date" required />
-          </div>
-          <div class="form-row">
-            <label for="cidade">Cidade ou CEP *</label>
-            <input id="cidade" name="city" type="text" autocomplete="postal-code" placeholder="Cidade/UF ou CEP" required />
-          </div>
-          <fieldset class="form-fieldset">
-            <legend>Já possui uma arte? *</legend>
-            <label><input name="hasArt" type="radio" value="Sim, já tenho arte" required /> Sim, já tenho arte</label>
-            <label><input name="hasArt" type="radio" value="Não, preciso criar a arte" /> Não, preciso criar a arte</label>
-            <label><input name="hasArt" type="radio" value="Tenho referências, mas preciso adaptar" /> Tenho referências, mas preciso adaptar</label>
-          </fieldset>
-          <fieldset class="form-fieldset">
-            <legend>Forma de contato preferida *</legend>
-            <label><input name="contactPreference" type="radio" value="WhatsApp" required /> WhatsApp</label>
-            <label><input name="contactPreference" type="radio" value="E-mail" /> E-mail</label>
-            <label><input name="contactPreference" type="radio" value="Tanto faz" /> Tanto faz</label>
-          </fieldset>
-          <div class="form-row form-full">
-            <label for="detalhes">Detalhes do pedido *</label>
-            <textarea id="detalhes" name="details" rows="5" placeholder="Tema, cores, acabamento, nomes, frases, ideias e observações" required></textarea>
-          </div>
-          <div class="form-row form-full">
-            <label for="referencias">Links ou referências</label>
-            <textarea id="referencias" name="references" rows="3" placeholder="Links do Instagram, Pinterest, Drive ou descrição das referências"></textarea>
-          </div>
-          <p class="privacy-note">
-            Os dados informados serão usados apenas para responder ao seu orçamento.
-            <a href="politica-de-privacidade.html">Política de privacidade em preparação</a>.
-          </p>
-          <div class="form-actions form-full">
-            <button class="button button-primary" type="submit">Enviar pelo WhatsApp</button>
-            <a class="button button-ghost" data-email-link href="#contato" aria-disabled="true">Enviar por e-mail</a>
-          </div>
-        </form>
-      </section>
-    </main>
-
-    <a class="floating-whatsapp" data-floating-whatsapp href="#contato" aria-label="Pedir orçamento pelo WhatsApp">
-      WhatsApp
-    </a>
-
-    <button class="robot-button" type="button" aria-expanded="false" aria-controls="robot-panel" data-robot-toggle>
-      <span class="robot-face" aria-hidden="true">
-        <span class="robot-eye"></span>
-        <span class="robot-eye"></span>
-      </span>
-      <span class="sr-only">Abrir Prisma Bot</span>
-    </button>
-
-    <aside id="robot-panel" class="robot-panel" aria-label="Prisma Bot, assistente de orçamento" data-robot-panel hidden>
-      <div class="robot-header">
-        <div>
-          <p class="eyebrow">Prisma Bot</p>
-          <h2>Assistente de orçamento</h2>
-        </div>
-        <button type="button" aria-label="Fechar Prisma Bot" data-robot-close>×</button>
       </div>
-      <div class="robot-messages" data-robot-messages aria-live="polite">
-        <p class="bot-message">Oi! Vou montar uma mensagem de orçamento em poucas etapas. Qual produto você deseja?</p>
+      <div class="hero-visual fade-up delay-2" aria-hidden="true">
+        <div class="hero-card card-1"><i class="fas fa-gift"></i></div>
+        <div class="hero-card card-2"><i class="fas fa-heart"></i></div>
+        <div class="hero-card card-3"><i class="fas fa-star"></i></div>
+        <div class="hero-blob"></div>
       </div>
-      <div class="quick-replies" aria-label="Atalhos do Prisma Bot">
-        <button type="button" data-reply="orcamento">Orçamento</button>
-        <button type="button" data-reply="prazo">Prazo</button>
-        <button type="button" data-reply="arte">Arte</button>
-        <button type="button" data-reply="frete">Frete</button>
-        <button type="button" data-reply="pagamento">Pagamento</button>
+    </div>
+  </section>
+
+  <!-- PRODUTOS -->
+  <section id="produtos" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Catálogo</span>
+        <h2>Nossos Produtos</h2>
+        <p>Explore nossa seleção de papelaria, personalizados e produtos para eventos.</p>
       </div>
-      <form class="robot-form" data-robot-form>
-        <input name="question" type="text" placeholder="Digite sua resposta" aria-label="Resposta para o Prisma Bot" />
-        <button type="submit">Enviar</button>
-      </form>
-    </aside>
 
-    <footer class="site-footer">
-      <p>Studio Prisma | Produtos personalizados com acabamento de design</p>
-      <a href="#inicio">Voltar ao topo</a>
-    </footer>
+      <div class="controls reveal">
+        <div class="search">
+          <i class="fas fa-search"></i>
+          <input id="searchInput" type="text" placeholder="Buscar produto por nome..." />
+        </div>
+        <div class="filters" id="filters">
+          <button class="filter active" data-filter="all">Todos</button>
+          <button class="filter" data-filter="papelaria">Papelaria</button>
+          <button class="filter" data-filter="personalizados">Personalizados</button>
+          <button class="filter" data-filter="eventos">Eventos</button>
+        </div>
+      </div>
 
-    <script src="scripts.js"></script>
-  </body>
+      <div id="productsGrid" class="products-grid"></div>
+      <p id="emptyState" class="empty" hidden>Nenhum produto encontrado.</p>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section id="diferenciais" class="section soft">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Por que escolher</span>
+        <h2>Nossos Diferenciais</h2>
+      </div>
+      <div class="features">
+        <div class="feature reveal"><i class="fas fa-palette"></i><h3>100% Personalizados</h3><p>Cada produto é criado especialmente para você.</p></div>
+        <div class="feature reveal"><i class="fab fa-whatsapp"></i><h3>Atendimento Rápido</h3><p>Fale conosco pelo WhatsApp e receba um orçamento na hora.</p></div>
+        <div class="feature reveal"><i class="fas fa-award"></i><h3>Qualidade Profissional</h3><p>Acabamento impecável em todos os detalhes.</p></div>
+        <div class="feature reveal"><i class="fas fa-heart"></i><h3>Entrega com Carinho</h3><p>Embalagem cuidadosa e atenção em cada pedido.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section id="galeria" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Inspirações</span>
+        <h2>Galeria</h2>
+        <p>Alguns exemplos dos nossos trabalhos personalizados.</p>
+      </div>
+      <div class="gallery" id="gallery"></div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section id="depoimentos" class="section soft">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Depoimentos</span>
+        <h2>O que dizem nossas clientes</h2>
+      </div>
+      <div class="testimonials">
+        <div class="testimonial reveal">
+          <div class="stars">★★★★★</div>
+          <p>"Amei minha caneca personalizada! Qualidade incrível e entrega super rápida."</p>
+          <div class="person"><div class="avatar" style="background:#f5d5d5">M</div><div><strong>Mariana S.</strong><span>Cliente</span></div></div>
+        </div>
+        <div class="testimonial reveal">
+          <div class="stars">★★★★★</div>
+          <p>"As lembrancinhas do meu evento ficaram perfeitas. Superou minhas expectativas!"</p>
+          <div class="person"><div class="avatar" style="background:#e8d5c4">C</div><div><strong>Camila R.</strong><span>Cliente</span></div></div>
+        </div>
+        <div class="testimonial reveal">
+          <div class="stars">★★★★★</div>
+          <p>"Atendimento maravilhoso e produto de altíssima qualidade. Recomendo demais!"</p>
+          <div class="person"><div class="avatar" style="background:#f0e0d0">J</div><div><strong>Juliana P.</strong><span>Cliente</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="section">
+    <div class="container contact reveal">
+      <span class="eyebrow">Contato</span>
+      <h2>Vamos criar algo especial juntas?</h2>
+      <p>Solicite seu orçamento sem compromisso. Adoraríamos transformar sua ideia em realidade.</p>
+      <div class="contact-buttons">
+        <a href="https://wa.me/5555999712007?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
+        <a href="https://instagram.com/_ketyrf7" target="_blank" rel="noopener" class="btn btn-outline btn-lg"><i class="fab fa-instagram"></i> @_ketyrf7</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <h3 class="logo">Ketty <span>Designer</span></h3>
+        <p>Papelaria personalizada, brindes e lembranças feitas com carinho.</p>
+      </div>
+      <div>
+        <h4>Menu</h4>
+        <a href="#home">Início</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <div>
+        <h4>Siga-nos</h4>
+        <div class="socials">
+          <a href="https://instagram.com/_ketyrf7" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/5555999712007" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copy">© 2026 Ketty Designer. Todos os direitos reservados.</div>
+  </footer>
+
+  <a href="https://wa.me/5555999712007?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+  <script src="script.js"></script>
+</body>
 </html>
