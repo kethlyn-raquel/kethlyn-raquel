@@ -50,7 +50,7 @@ const products = [
     price: "R$ 3,50",
     image: "img/produtos/mini-calendario.jpg",
     category: "papelaria",
-    description: "Uma opção útil e personalizada para brindes, lembranças e divulgação."
+    description: "Uma opção útil e nalizada para brindes, lembranças e divulgação."
   },
   {
     name: "Etiqueta Escolar",
@@ -60,9 +60,9 @@ const products = [
     description: "Identificação bonita e prática para materiais da rotina escolar."
   },
   {
-    name: "Caneca Personalizada",
+    name: "Caneca nalizada",
     price: "R$ 39,90",
-    image: "img/produtos/caneca-personalizada.jpg",
+    image: "img/produtos/caneca-nalizada.jpg",
     category: "personalizados",
     description: "Também disponível em promoção: duas unidades por R$ 65,00."
   },
@@ -72,6 +72,13 @@ const products = [
   image: "img/produtos/quadro-vidro.jpg",
   category: "personalizados",
   description: ""
+},
+  {
+  name: "Copo Personalizado",
+  price: "R$ 6,50 a unidade",
+  image: "img/produtos/copo-personalizado.jpeg",
+  category: "personalizados",
+  description: "Copos personalizados para festas, eventos e lembranças especiais."
 },
   {
     name: "Álbum de Fotos + 18 Fotos",
