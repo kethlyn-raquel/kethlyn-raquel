@@ -67,12 +67,11 @@ const products = [
     description: "Também disponível em promoção: duas unidades por R$ 65,00."
   },
   {
-    name: "Quadro de Vidro",
-    price: "R$ 39,90",
-    image: "img/produtos/quadro-vidro.jpg",
-    category: "personalizados",
-    description: "Também disponível em promoção: duas unidades por R$ 65,00."
-  },
+  name: "Quadro de Vidro",
+  price: "R$ 25,00",
+  image: "img/produtos/quadro-vidro.jpg",
+  category: "personalizados"
+},
   {
     name: "Álbum de Fotos + 18 Fotos",
     price: "R$ 89,00",
