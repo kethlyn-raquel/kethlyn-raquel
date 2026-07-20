@@ -1,397 +1,104 @@
-const BUSINESS_CONFIG = {
-  whatsapp: "5555996554308",
-  email: "rafaeldornellesgoncalves@gmail.com",
-  instagram: "rfcheff_",
-  tiktok: "dornellescruel",
-};
+const WA_NUMBER = "5555999712007";
 
-document.documentElement.classList.add("js");
-
-const header = document.querySelector("[data-header]");
-const menuToggle = document.querySelector(".menu-toggle");
-const nav = document.querySelector(".main-nav");
-const tabs = document.querySelector("[data-tabs]");
-const robotToggle = document.querySelector("[data-robot-toggle]");
-const robotPanel = document.querySelector("[data-robot-panel]");
-const robotClose = document.querySelector("[data-robot-close]");
-const robotMessages = document.querySelector("[data-robot-messages]");
-const robotForm = document.querySelector("[data-robot-form]");
-const contactForm = document.querySelector("[data-contact-form]");
-const emailLink = document.querySelector("[data-email-link]");
-const floatingWhatsApp = document.querySelector("[data-floating-whatsapp]");
-const configWarning = document.querySelector("[data-config-warning]");
-
-const botState = {
-  step: 0,
-  answers: {},
-};
-
-const botSteps = [
-  { key: "product", question: "Qual quantidade você precisa?" },
-  { key: "quantity", question: "Para qual data você precisa do pedido?" },
-  { key: "date", question: "Você já possui uma arte pronta?" },
-  { key: "hasArt", question: "Qual é sua cidade ou CEP?" },
-  { key: "city", question: "Deseja continuar pelo WhatsApp? Responda sim para abrir a mensagem." },
-  { key: "confirm", question: "" },
+const products = [
+  // Papelaria
+  {name:"Banner", price:"A partir de R$ 80,00", img:"img/produtos/banner.jpg", cat:"papelaria", desc:""},
+  {name:"Foto Polaroid", price:"R$ 2,50", img:"img/produtos/polaroid.jpg", cat:"papelaria", desc:""},
+  {name:"Fotos Plastificadas", price:"A partir de R$ 3,00", img:"img/produtos/foto-plastificada.jpg", cat:"papelaria", desc:"Fotos com acabamento plastificado para maior durabilidade."},
+  {name:"Azulejo Personalizado", price:"R$ 30,00", img:"img/produtos/azulejo.jpg", cat:"papelaria", desc:""},
+  {name:"Cartão de Visita", price:"1000 unidades por R$ 150,00", img:"img/produtos/cartao.jpg", cat:"papelaria", desc:""},
+  {name:"Wind Banner", price:"R$ 290,00", img:"img/produtos/widerbanner.jpg", cat:"papelaria", desc:""},
+  {name:"Mini Calendário", price:"R$ 3,50", img:"img/produtos/calendario.jpg", cat:"papelaria", desc:""},
+  {name:"Etiqueta Escolar", price:"R$ 29,90", img:"img/produtos/etiqueta.jpg", cat:"papelaria", desc:""},
+  // Personalizados
+  {name:"Caneca Personalizada", price:"R$ 39,90", img:"img/produtos/caneca.jpg.jpg", cat:"personalizados", desc:"Ou duas por R$ 65,00."},
+  {name:"Quadro de Vidro", price:"R$ 39,90", img:"img/produtos/quadro-personalizado.jpg.jpg", cat:"personalizados", desc:"Ou dois por R$ 65,00."},
+  {name:"Álbum de Fotos + 18 Fotos", price:"R$ 89,00", img:"img/produtos/album.jpg", cat:"personalizados", desc:""},
+  {name:"Kit Chaveiro", price:"R$ 9,90", img:"img/produtos/kit-chaveiro.jpg", cat:"personalizados", desc:""},
+  {name:"Caixinhas Personalizadas", price:"R$ 6,00", img:"img/produtos/caixinhas-personalizadas.jpg", cat:"personalizados", desc:""},
+  {name:"Caixa Personalizada Grande", price:"R$ 25,00", img:"img/produtos/caixa-personalizada.jpg", cat:"personalizados", desc:""},
+  {name:"Chaveiro Individual", price:"R$ 4,00", img:"img/produtos/chaveiro.jpg", cat:"personalizados", desc:""},
+  {name:"Topo de Bolo", price:"R$ 20,00", img:"img/produtos/topo-bolo.jpg.JPG", cat:"personalizados", desc:""},
+  // Eventos
+  {name:"Lembrancinhas Dia das Mães", price:"R$ 2,50", img:"img/produtos/dia-das-maes.jpg", cat:"eventos", desc:""},
+  {name:"Centro de Mesa Plastificado", price:"R$ 7,00", img:"img/produtos/centro-de-mesa.jpg", cat:"eventos", desc:""},
+  {name:"Buquê de Borboleta com LED", price:"R$ 80,00", img:"img/produtos/buque-led.jpg", cat:"eventos", desc:"Versão clássica sem LED por apenas R$ 70,00."},
+  {name:"Banner de 15 Anos", price:"R$ 150,00", img:"img/produtos/15anos.jpg", cat:"eventos", desc:""},
 ];
 
-const quickReplies = {
-  orcamento:
-    "Para solicitar orçamento, informe produto, quantidade, prazo, cidade/CEP e se já possui arte. Posso montar essa mensagem com você agora.",
-  prazo:
-    "O prazo é informado após a análise do pedido. A produção só começa depois da aprovação da prova digital e da confirmação do orçamento.",
-  arte:
-    "Você pode enviar sua própria arte ou referências. Quando a criação for necessária, as condições são confirmadas no orçamento.",
-  frete:
-    "O envio depende da cidade e do tipo de produto. Também pode existir retirada a combinar, conforme disponibilidade da empresa.",
-  pagamento:
-    "As formas e condições de pagamento são confirmadas no orçamento, conforme produto, quantidade e prazo.",
-};
+const catLabels = {papelaria:"Papelaria",personalizados:"Personalizados",eventos:"Eventos"};
 
-function isConfigured(value) {
-  return Boolean(value && !value.startsWith("INSIRA_"));
+function waLink(name){
+  const msg = `Olá! Tenho interesse no produto ${name} e gostaria de fazer um orçamento.`;
+  return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
 }
 
-function encodeMessage(text) {
-  return encodeURIComponent(text);
-}
-
-function getWhatsAppUrl(message) {
-  if (!isConfigured(BUSINESS_CONFIG.whatsapp)) return "#contato";
-  return `https://wa.me/${BUSINESS_CONFIG.whatsapp}?text=${encodeMessage(message)}`;
-}
-
-function buildInitialMessage(context = "") {
-  return [
-    "Olá, Studio Prisma! Gostaria de solicitar um orçamento.",
-    context ? `Interesse: ${context}` : "Interesse: produtos personalizados",
-    "",
-    "Podem me orientar sobre valores, prazo e próximos passos?",
-  ].join("\n");
-}
-
-function updateHeader() {
-  header.classList.toggle("is-scrolled", window.scrollY > 16);
-}
-
-function closeMenu() {
-  header.classList.remove("is-open");
-  menuToggle.setAttribute("aria-expanded", "false");
-}
-
-function configureContactLinks() {
-  const socialLinks = document.querySelectorAll("[data-social-link]");
-  const hasWhatsApp = isConfigured(BUSINESS_CONFIG.whatsapp);
-  const hasEmail = isConfigured(BUSINESS_CONFIG.email);
-  const hasInstagram = isConfigured(BUSINESS_CONFIG.instagram);
-  const hasTiktok = isConfigured(BUSINESS_CONFIG.tiktok);
-  const allConfigured = hasWhatsApp && hasEmail && hasInstagram && hasTiktok;
-
-  socialLinks.forEach((link) => {
-    const type = link.dataset.socialLink;
-    let href = "#contato";
-    let label = `${link.textContent.replace(" pendente", "")} pendente`;
-    let configured = false;
-
-    if (type === "whatsapp" && hasWhatsApp) {
-      href = getWhatsAppUrl(buildInitialMessage());
-      label = "WhatsApp";
-      configured = true;
-    }
-
-    if (type === "email" && hasEmail) {
-      href = `mailto:${BUSINESS_CONFIG.email}`;
-      label = "E-mail";
-      configured = true;
-    }
-
-    if (type === "instagram" && hasInstagram) {
-      href = `https://www.instagram.com/${BUSINESS_CONFIG.instagram.replace("@", "")}`;
-      label = "Instagram";
-      configured = true;
-    }
-
-    if (type === "tiktok" && hasTiktok) {
-      href = `https://www.tiktok.com/@${BUSINESS_CONFIG.tiktok.replace("@", "")}`;
-      label = "TikTok";
-      configured = true;
-    }
-
-    link.href = href;
-    link.textContent = label;
-    link.toggleAttribute("aria-disabled", !configured);
-    link.classList.toggle("is-pending", !configured);
-    link.target = configured && type !== "email" ? "_blank" : "";
-    link.rel = configured && type !== "email" ? "noreferrer" : "";
+function renderProducts(){
+  const grid = document.getElementById('productsGrid');
+  const search = document.getElementById('searchInput').value.toLowerCase().trim();
+  const activeFilter = document.querySelector('.filter.active').dataset.filter;
+  const filtered = products.filter(p=>{
+    const matchCat = activeFilter==='all'||p.cat===activeFilter;
+    const matchSearch = !search||p.name.toLowerCase().includes(search);
+    return matchCat && matchSearch;
   });
-
-  if (floatingWhatsApp) {
-    floatingWhatsApp.href = getWhatsAppUrl(buildInitialMessage());
-    floatingWhatsApp.classList.toggle("is-pending", !hasWhatsApp);
-    floatingWhatsApp.textContent = hasWhatsApp ? "WhatsApp" : "Configurar WhatsApp";
-  }
-
-  if (configWarning) {
-    configWarning.hidden = allConfigured;
-  }
-}
-
-function syncEmailLink() {
-  if (!emailLink) return;
-
-  if (!isConfigured(BUSINESS_CONFIG.email)) {
-    emailLink.href = "#contato";
-    emailLink.setAttribute("aria-disabled", "true");
-    emailLink.classList.add("is-disabled");
-    return;
-  }
-
-  const subject = encodeURIComponent("Pedido de orçamento - Studio Prisma");
-  const body = encodeMessage(buildContactMessage(contactForm));
-  emailLink.href = `mailto:${BUSINESS_CONFIG.email}?subject=${subject}&body=${body}`;
-  emailLink.removeAttribute("aria-disabled");
-  emailLink.classList.remove("is-disabled");
-}
-
-function buildContactMessage(form) {
-  const data = new FormData(form);
-
-  return [
-    "Olá, Studio Prisma! Gostaria de solicitar um orçamento.",
-    "",
-    `Nome: ${data.get("name") || ""}`,
-    `WhatsApp/telefone: ${data.get("phone") || ""}`,
-    `E-mail: ${data.get("email") || ""}`,
-    `Produto: ${data.get("product") || ""}`,
-    `Quantidade: ${data.get("quantity") || ""}`,
-    `Data: ${data.get("date") || ""}`,
-    `Cidade/CEP: ${data.get("city") || ""}`,
-    `Já possui arte: ${data.get("hasArt") || ""}`,
-    `Contato preferido: ${data.get("contactPreference") || ""}`,
-    `Detalhes: ${data.get("details") || ""}`,
-    `Referências: ${data.get("references") || ""}`,
-  ].join("\n");
-}
-
-function selectProduct(value, details = "") {
-  const product = contactForm.elements.product;
-  const detailsField = contactForm.elements.details;
-
-  if ([...product.options].some((option) => option.value === value || option.textContent === value)) {
-    product.value = value;
-  } else {
-    product.value = "Outro produto";
-  }
-
-  if (details) {
-    detailsField.value = details;
-  } else if (!detailsField.value.trim()) {
-    detailsField.value = `Tenho interesse em ${value}.`;
-  }
-
-  syncEmailLink();
-  document.querySelector("#contato").scrollIntoView({ behavior: "smooth", block: "start" });
-  product.focus({ preventScroll: true });
-}
-
-function addRobotMessage(text, author = "bot") {
-  const message = document.createElement("p");
-  message.className = author === "user" ? "user-message" : "bot-message";
-  message.textContent = text;
-  robotMessages.append(message);
-  robotMessages.scrollTop = robotMessages.scrollHeight;
-}
-
-function buildBotMessage() {
-  return [
-    "Olá, Studio Prisma! Gostaria de solicitar um orçamento.",
-    "",
-    `Produto: ${botState.answers.product || ""}`,
-    `Quantidade: ${botState.answers.quantity || ""}`,
-    `Data: ${botState.answers.date || ""}`,
-    `Já possui arte: ${botState.answers.hasArt || ""}`,
-    `Cidade/CEP: ${botState.answers.city || ""}`,
-  ].join("\n");
-}
-
-function resetBot() {
-  botState.step = 0;
-  botState.answers = {};
-}
-
-function handleBotAnswer(answer) {
-  const trimmed = answer.trim();
-  if (!trimmed) return;
-
-  addRobotMessage(trimmed, "user");
-  const current = botSteps[botState.step];
-  botState.answers[current.key] = trimmed;
-
-  if (current.key === "confirm") {
-    if (trimmed.toLowerCase().startsWith("s")) {
-      window.open(getWhatsAppUrl(buildBotMessage()), "_blank", "noopener,noreferrer");
-      addRobotMessage("Perfeito. Se o WhatsApp estiver configurado, a mensagem será aberta para envio.");
-    } else {
-      addRobotMessage("Sem problema. Quando quiser, posso montar uma nova mensagem.");
-    }
-    resetBot();
-    addRobotMessage("Qual produto você deseja?");
-    return;
-  }
-
-  addRobotMessage(current.question);
-
-  botState.step += 1;
-
-  if (botSteps[botState.step].key === "confirm") {
-    addRobotMessage(buildBotMessage());
-  }
-}
-
-window.addEventListener("scroll", updateHeader, { passive: true });
-updateHeader();
-configureContactLinks();
-syncEmailLink();
-
-menuToggle.addEventListener("click", () => {
-  const isOpen = header.classList.toggle("is-open");
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
-});
-
-nav.addEventListener("click", (event) => {
-  if (event.target.matches("a")) closeMenu();
-});
-
-tabs.addEventListener("click", (event) => {
-  const button = event.target.closest("[data-tab]");
-  if (!button) return;
-
-  const tabName = button.dataset.tab;
-  const buttons = tabs.querySelectorAll("[data-tab]");
-  const panels = tabs.querySelectorAll("[data-panel]");
-
-  buttons.forEach((item) => {
-    const active = item === button;
-    item.classList.toggle("is-active", active);
-    item.setAttribute("aria-selected", String(active));
+  grid.innerHTML = filtered.map(p=>`
+    <article class="product" data-cat="${p.cat}">
+      <div class="product-img">
+        <span class="placeholder"><i class="fas fa-image"></i></span>
+        <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'" />
+      </div>
+      <div class="product-body">
+        <span class="product-cat">${catLabels[p.cat]}</span>
+        <h3 class="product-name">${p.name}</h3>
+        ${p.desc?`<p class="product-desc">${p.desc}</p>`:''}
+        <div class="product-price">${p.price}</div>
+        <a href="${waLink(p.name)}" target="_blank" rel="noopener" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp</a>
+      </div>
+    </article>
+  `).join('');
+  document.getElementById('emptyState').hidden = filtered.length>0;
+  // Stagger reveal
+  requestAnimationFrame(()=>{
+    document.querySelectorAll('#productsGrid .product').forEach((el,i)=>{
+      setTimeout(()=>el.classList.add('visible'), i*40);
+    });
   });
-
-  panels.forEach((panel) => {
-    panel.classList.toggle("is-active", panel.dataset.panel === tabName);
-  });
-});
-
-tabs.addEventListener("keydown", (event) => {
-  const current = event.target.closest("[data-tab]");
-  if (!current || !["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
-
-  const buttons = [...tabs.querySelectorAll("[data-tab]")];
-  const index = buttons.indexOf(current);
-  let nextIndex = index;
-
-  if (event.key === "ArrowRight") nextIndex = (index + 1) % buttons.length;
-  if (event.key === "ArrowLeft") nextIndex = (index - 1 + buttons.length) % buttons.length;
-  if (event.key === "Home") nextIndex = 0;
-  if (event.key === "End") nextIndex = buttons.length - 1;
-
-  event.preventDefault();
-  buttons[nextIndex].focus();
-  buttons[nextIndex].click();
-});
-
-document.querySelectorAll("[data-product-request]").forEach((button) => {
-  button.addEventListener("click", () => {
-    selectProduct(button.dataset.productRequest);
-  });
-});
-
-document.querySelectorAll("[data-project-request]").forEach((button) => {
-  button.addEventListener("click", () => {
-    const project = button.dataset.projectRequest;
-    selectProduct("Outro produto", `Gostaria de algo parecido com o projeto: ${project}.`);
-  });
-});
-
-document.querySelectorAll("[data-whatsapp-intent]").forEach((link) => {
-  link.addEventListener("click", (event) => {
-    if (!isConfigured(BUSINESS_CONFIG.whatsapp)) return;
-    event.preventDefault();
-    window.open(getWhatsAppUrl(buildInitialMessage()), "_blank", "noopener,noreferrer");
-  });
-});
-
-if ("IntersectionObserver" in window) {
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.16 },
-  );
-
-  document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
-} else {
-  document.querySelectorAll(".reveal").forEach((element) => element.classList.add("is-visible"));
 }
 
-function openRobot() {
-  robotPanel.hidden = false;
-  robotToggle.setAttribute("aria-expanded", "true");
-  robotForm.elements.question.focus();
+function renderGallery(){
+  const items = products.slice(0,8);
+  document.getElementById('gallery').innerHTML = items.map(p=>`
+    <div class="gallery-item"><img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.opacity=0" /></div>
+  `).join('');
 }
 
-function closeRobot() {
-  robotPanel.hidden = true;
-  robotToggle.setAttribute("aria-expanded", "false");
-  robotToggle.focus();
-}
-
-robotToggle.addEventListener("click", () => {
-  if (robotPanel.hidden) {
-    openRobot();
-  } else {
-    closeRobot();
+// Filters + search
+document.getElementById('filters').addEventListener('click', e=>{
+  if(e.target.classList.contains('filter')){
+    document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));
+    e.target.classList.add('active');
+    renderProducts();
   }
 });
+document.getElementById('searchInput').addEventListener('input', renderProducts);
 
-robotClose.addEventListener("click", closeRobot);
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && !robotPanel.hidden) closeRobot();
+// Header scroll effect
+window.addEventListener('scroll', ()=>{
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY>30);
 });
 
-document.querySelectorAll("[data-reply]").forEach((button) => {
-  button.addEventListener("click", () => {
-    const replyKey = button.dataset.reply;
-    addRobotMessage(button.textContent, "user");
-    addRobotMessage(quickReplies[replyKey]);
-  });
-});
+// Mobile menu
+const nav = document.getElementById('nav');
+document.getElementById('menuToggle').addEventListener('click', ()=>nav.classList.toggle('open'));
+nav.addEventListener('click', e=>{ if(e.target.tagName==='A') nav.classList.remove('open'); });
 
-robotForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const input = robotForm.elements.question;
-  handleBotAnswer(input.value);
-  input.value = "";
-});
+// Reveal on scroll
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('visible'); io.unobserve(en.target); } });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-contactForm.addEventListener("input", syncEmailLink);
-
-contactForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  if (!contactForm.reportValidity()) return;
-
-  const message = buildContactMessage(contactForm);
-
-  if (!isConfigured(BUSINESS_CONFIG.whatsapp)) {
-    alert("Configure o número do WhatsApp em BUSINESS_CONFIG no arquivo scripts.js antes de publicar.");
-    return;
-  }
-
-  window.open(getWhatsAppUrl(message), "_blank", "noopener,noreferrer");
-});
+// Init
+renderProducts();
+renderGallery();
